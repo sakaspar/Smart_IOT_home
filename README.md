@@ -112,11 +112,6 @@ This Project can be hosted on your pi
 #
 
 ## __3. Mosca, MQTT.js & MongoDB__
-
-- Click & watch video tutorial below! 👇
-
-    [![Video](https://img.youtube.com/vi/-8NgIdT_OBc/0.jpg)](https://www.youtube.com/watch?v=-8NgIdT_OBc)
-
 - Create a database & collection on MongoDB:
     
     ```bash
