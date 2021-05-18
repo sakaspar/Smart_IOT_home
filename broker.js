@@ -2,6 +2,7 @@
 var mosca = require('mosca')
 var settings = {port: 1883}
 var broker = new mosca.Server(settings)
+var mqtt = require('mqtt')
 
 // MongoDB
 var mongo = require('mongodb')
@@ -9,10 +10,17 @@ var mongc = mongo.MongoClient
 var url ='mongodb://localhost:27017/mqttjs'
 //date
 let date_ob = new Date();
+var topic3 = 'state'
 
 broker.on('ready', ()=>{
     console.log('Broker is ready!')
 })
+
+var pipub = mqtt.connect('mqtt://localhost:1883')
+
+
+
+
 
 broker.on('published', (packet)=>{
   
@@ -28,6 +36,7 @@ const idu=message;
     if(message.slice(0,1) != '{' && message.slice(0,4) != 'mqtt'){
         mongc.connect(url, (error, client)=>{
             var dbo = client.db("mqttjs");
+         //   pipub.publish(topic3, '0')
             
             dbo.collection('activity1').insertOne({
                 
@@ -93,6 +102,7 @@ if(message=="open_door!"){
 /*wash hands*/
 console.log(message,typeof(message))
 if(message=="rob_use"){
+    pipub.publish(topic3, '2')
     console.log("rob_use",idu)
 const myquery1 = { _id : idu };
         var newvalues1 = { $set: {state: 2,doorstate:"open" } };
