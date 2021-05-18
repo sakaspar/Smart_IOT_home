@@ -1,13 +1,9 @@
-![simplinnovation](https://4.bp.blogspot.com/-f7YxPyqHAzY/WJ6VnkvE0SI/AAAAAAAADTQ/0tDQPTrVrtMAFT-q-1-3ktUQT5Il9FGdQCLcB/s350/simpLINnovation1a.png)
 
-# __Mosca 💛 MQTTjs 💚 MySQL + MongoDB__
+This Project can be hosted on your pi 
+
+# Mosca MQTTjs  MongoDB__
 
 ## __1. Mosca & MQTT.js__
-
-- Click & watch video tutorial below! 👇
-
-    [![Mosca MQTT.js](https://img.youtube.com/vi/HRrqF8ISQJs/0.jpg)](https://www.youtube.com/watch?v=HRrqF8ISQJs)
-
 - Initiate a Node.js project then install Mosca & MQTT.js:
     
     ```bash
@@ -69,31 +65,6 @@
     ```
 #
 
-## __2. Mosca, MQTT.js & MySQL__
-
-- Click & watch video tutorial below! 👇
-
-    [![Video](https://img.youtube.com/vi/XhWNMZ7C1ZI/0.jpg)](https://www.youtube.com/watch?v=XhWNMZ7C1ZI)
-
-- Create a database & table on MySQL:
-    
-    ```bash
-    $ create database mqttJS;
-    $ use mqttJS
-    $ create table(
-        id int not null auto_increment,
-        message varchar(255),
-        time timestamp default current_timestamp,
-        primary key (id)
-    );
-    $ describe mqttJS
-    ```
-
-- Install _MySQL.js_:
-
-    ```bash
-    $ npm i mysql
-    ```
 
 - Create an __*MQTT broker*__ (_brokerMySQL.js_):
 
@@ -141,11 +112,6 @@
 #
 
 ## __3. Mosca, MQTT.js & MongoDB__
-
-- Click & watch video tutorial below! 👇
-
-    [![Video](https://img.youtube.com/vi/-8NgIdT_OBc/0.jpg)](https://www.youtube.com/watch?v=-8NgIdT_OBc)
-
 - Create a database & collection on MongoDB:
     
     ```bash
@@ -200,11 +166,5 @@
 
 #
 
-#### Lintang Wisesa :love_letter: _lintangwisesa@ymail.com_
+#Feel Free to take and change this code for your own good e_mail: saadihamza2020@gmail.com
 
-[Facebook](https://www.facebook.com/lintangbagus) | 
-[Twitter](https://twitter.com/Lintang_Wisesa) |
-[LinkedIn](https://www.linkedin.com/in/lintangwisesa/) |
-[Youtube](https://www.youtube.com/user/lintangbagus) | 
-:octocat: [GitHub](https://github.com/LintangWisesa) |
-[Hackster](https://www.hackster.io/lintangwisesa)
