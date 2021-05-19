@@ -42,6 +42,9 @@ const idu=message;
     
     if(message.slice(0,1) != '{' && message.slice(0,4) != 'mqtt'){
         mongc.connect(url, (error, db)=>{
+            if (error) {
+                console.error('An error occurred connecting to MongoDB: ', error);
+            } else {
             var dbo = db.db("mqttjs");
          //   pipub.publish(topic3, '0')
             console.log("we in add ");
@@ -57,7 +60,7 @@ const idu=message;
                 console.log('Data is saved to MongoDB')
                 db.close()
             })
-        })
+         } })
     }
 
 
@@ -90,6 +93,9 @@ if(message=="open_door!"){
             var newvalues2 = { $set: {state: 0,doorstate:"Closed" ,leavingtime:date_ob.getMinutes(),} };
     if(message.slice(0,1) != '{' && message.slice(0,4) != 'mqtt'){
         mongc.connect(url, (error, db)=>{
+            if (error) {
+                console.error('An error occurred connecting to MongoDB: ', error);
+            } else {
             var dbo = db.db("mqttjs");
          
             dbo.collection('activity1').updateOne(myquery2, newvalues2, function(err, res) {
@@ -98,7 +104,7 @@ if(message=="open_door!"){
           console.log("1 document updatedxdoorx");
           db.close();
         });
-      });
+           }   });
     
     }
 }
@@ -115,6 +121,9 @@ const myquery1 = { _id : idu };
         var newvalues1 = { $set: {state: 2,doorstate:"open" } };
 if(message.slice(0,1) != '{' && message.slice(0,4) != 'mqtt'){
     mongc.connect(url, (error, client)=>{
+        if (error) {
+            console.error('An error occurred connecting to MongoDB: ', error);
+        } else {
         var dbo = client.db("mqttjs");
      
         dbo.collection('activity1').updateOne(myquery1, newvalues1, function(err, res) {
@@ -123,7 +132,8 @@ if(message.slice(0,1) != '{' && message.slice(0,4) != 'mqtt'){
       console.log("1 document updated xwash handsx");
       client.close();
     });
-  });
+      }  });
+
 
 }
 
