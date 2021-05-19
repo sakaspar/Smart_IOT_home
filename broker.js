@@ -1,6 +1,12 @@
 // MQTT broker
 var mosca = require('mosca')
-var settings = {port: 1883}
+
+    var settings = {
+        port: 1884,
+        username: 'blue',
+        password: 'azerty',
+        clientId: 'mqttjs_667'
+    }
 var broker = new mosca.Server(settings)
 var mqtt = require('mqtt')
 
@@ -27,17 +33,18 @@ broker.on('published', (packet)=>{
   //add user to activity1
   const message = packet.payload.toString()
 const idu =5 
-if(typeof(message)=="0x%")
+console.log("we goin in add ");
+if(message=="0%")
 {
 const idu=message; 
 }
-
+/*messssaage*/
     
     if(message.slice(0,1) != '{' && message.slice(0,4) != 'mqtt'){
-        mongc.connect(url, (error, client)=>{
-            var dbo = client.db("mqttjs");
+        mongc.connect(url, (error, db)=>{
+            var dbo = db.db("mqttjs");
          //   pipub.publish(topic3, '0')
-            
+            console.log("we in add ");
             dbo.collection('activity1').insertOne({
                 
                 _id : idu,
@@ -48,7 +55,7 @@ const idu=message;
                 mints:date_ob.getMinutes(),
             }, ()=>{
                 console.log('Data is saved to MongoDB')
-                client.close()
+                db.close()
             })
         })
     }
@@ -74,10 +81,10 @@ const idu=message;
 
 
       /*door*/
-console.log("9bal if ",idu)
-console.log(message)
+console.log("maybe we go door",message)
 if(message=="open_door!"){
-    console.log("fel if ",message)
+    console.log("fel if ta3 door ",message)
+    console.log(idu)
     const myquery2 = { _id : idu };
     
             var newvalues2 = { $set: {state: 0,doorstate:"Closed" ,leavingtime:date_ob.getMinutes(),} };
@@ -100,9 +107,9 @@ if(message=="open_door!"){
 
 
 /*wash hands*/
-console.log(message,typeof(message))
+console.log("maybe we go had washed ",message,typeof(message))
 if(message=="rob_use"){
-    pipub.publish(topic3, '2')
+    //pipub.publish(topic3, '2')
     console.log("rob_use",idu)
 const myquery1 = { _id : idu };
         var newvalues1 = { $set: {state: 2,doorstate:"open" } };
