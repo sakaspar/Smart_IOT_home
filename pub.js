@@ -1,9 +1,9 @@
 var mqtt = require('mqtt')
-var client = mqtt.connect('mqtt://localhost:1883')
+var client = mqtt.connect('mqtt://localhost:1884')
 var topic = 'door'
 var topic2 = 'rob'
-var message = 'open_door'
-var message2 = 'rob_use'
+var message = 'open_door!'
+var message2 = 'rob_useo'
 
 client.on('connect', ()=>{
     setInterval(()=>{
